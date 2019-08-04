@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" data-th-href="@{/css/shrink_link.css}" />
+    <title>Shorter</title>
+</head>
+<body>
+
+<div class="header">
+    <h1>Link shorter</h1>
+</div>
+
+<div class="content">
+    <div class="input-main">
+        <div class="input-div">
+            <div class="input-group">
+                <input type="text" class="form-control"/>
+                <span class="input-group-btn">
+                    <button class="btn btn-default" type="button">Copy url</button>
+                </span>
+                    <p>Длинная ссылка: <a class="long_link_a" th:text="${link.url}"></a> </p>
+                    <p>Короткая ссылка: <a class="short_link_a">short link</a> </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="footer">
+    <h4>Created by Artyom Danilin</h4>
+</div>
+
+</body>
+</html>

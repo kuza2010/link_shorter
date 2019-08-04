@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" media="all" data-th-href="@{/css/error.css}" />
+    <title>Oops...</title>
+</head>
+<body>
+
+<div id='oopss'>
+    <div id='error-text'>
+        <div th:if="${error==null}">
+            <span>Oops...</span>
+            <p>Something went wrong</p>
+        </div>
+        <div th:unless="${error==null}">
+            <span th:text="${error.code}"></span>
+            <p th:text="${error.message}"></p>
+        </div>
+        <p class='hmpg'><a href='/' class="back">Go Home</a></p>
+    </div>
+</div>
+
+</body>
+</html>
