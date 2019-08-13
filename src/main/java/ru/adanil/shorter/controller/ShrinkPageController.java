@@ -10,7 +10,7 @@ import ru.adanil.shorter.model.Link;
 @Controller
 public class ShrinkPageController {
 
-    // throw 404
+
     @GetMapping(value = "/short_link")
     public String shortForms(Model model) {
         return "shrink_link";
