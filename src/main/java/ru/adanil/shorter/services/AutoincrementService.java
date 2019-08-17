@@ -1,5 +1,7 @@
-package ru.adanil.shorter.repository.services;
+package ru.adanil.shorter.services;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
 import org.springframework.data.mongodb.core.query.Update;
@@ -18,6 +20,8 @@ public class AutoincrementService {
     public static final String DB_ID_NAME = "_id";
     public static final String DB_SEQUENCES_NAME = "seq";
 
+    private Logger log = LoggerFactory.getLogger(AutoincrementService.class);
+
     @Autowired
     private MongoOperations mongo;
 
@@ -29,17 +33,20 @@ public class AutoincrementService {
                 LinkAutoincrement.class);
 
         if (counter == null) {
-            //TODO logging
+            log.warn("getNextLinkId: autoincrement counter is null");
             insertStartId();
             return getNextLinkId(0);
         }
 
+        log.info("getNextLinkId: next id = {}",counter.getSeq());
         return counter.getSeq();
     }
 
     private int getNextLinkId(int retryCount) {
-        if (retryCount >= 3)
+        if (retryCount >= 3) {
+            log.error("getNextLinkId: Can not generate unique id. retry count = {}",retryCount);
             throw new RuntimeException("Can not generate unique id");
+        }
 
         LinkAutoincrement counter = mongo.findAndModify(
                 query(where(DB_ID_NAME).is(LINK_DB_NAME)),
@@ -48,7 +55,6 @@ public class AutoincrementService {
                 LinkAutoincrement.class);
 
         if (counter == null) {
-            //TODO logging
             insertStartId();
             getNextLinkId(retryCount++);
         }
@@ -60,7 +66,9 @@ public class AutoincrementService {
         LinkAutoincrement toInsert = new LinkAutoincrement();
         toInsert.setId(DB_SEQUENCES_NAME);
         toInsert.setSeq(-1);
+
         mongo.insert(toInsert, LinkAutoincrement.COLLECTION_NAME);
+        log.info("insertStartId: insert start id = 1");
     }
 
 }

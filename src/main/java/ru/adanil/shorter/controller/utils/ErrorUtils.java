@@ -2,7 +2,7 @@ package ru.adanil.shorter.controller.utils;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.lang.Nullable;
-import ru.adanil.shorter.model.ErrorDetails;
+import ru.adanil.shorter.controller.model.ErrorDetails;
 
 import static org.springframework.http.HttpStatus.INTERNAL_SERVER_ERROR;
 import static org.springframework.http.HttpStatus.NOT_FOUND;
@@ -25,7 +25,6 @@ public class ErrorUtils {
         }
         return null;
     }
-
 
     private static String getPhrase(HttpStatus status) {
         return status.getReasonPhrase();

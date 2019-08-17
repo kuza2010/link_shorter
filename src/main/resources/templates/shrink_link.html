@@ -16,12 +16,12 @@
     <div class="input-main">
         <div class="input-div">
             <div class="input-group">
-                <input type="text" class="form-control"/>
+                <input type="text" class="form-control"  th:value="${link.shortLink}"/>
                 <span class="input-group-btn">
                     <button class="btn btn-default" type="button">Copy url</button>
                 </span>
-                    <p>Длинная ссылка: <a class="long_link_a" th:text="${link.url}"></a> </p>
-                    <p>Короткая ссылка: <a class="short_link_a">short link</a> </p>
+                    <p>Длинная ссылка: <a class="long_link_a" th:text="${link.longLink}"></a> </p>
+                    <p>Короткая ссылка: <a class="short_link_a" th:text="${link.shortLink}"></a> </p>
             </div>
         </div>
     </div>

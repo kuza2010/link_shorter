@@ -14,7 +14,6 @@ import static ru.adanil.shorter.controller.utils.ErrorUtils.getErrorDetailsByCod
 public class ExceptionController implements ErrorController {
     private static final String errorEndPoint = "/error";
 
-
     @RequestMapping(errorEndPoint)
     public String handleError(HttpServletRequest request, Model model) {
         Object code = request.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);

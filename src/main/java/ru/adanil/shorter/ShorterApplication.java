@@ -5,7 +5,7 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import ru.adanil.shorter.repository.LinkRepository;
-import ru.adanil.shorter.repository.services.AutoincrementService;
+import ru.adanil.shorter.services.AutoincrementService;
 
 @SpringBootApplication
 public class ShorterApplication implements CommandLineRunner {

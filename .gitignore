@@ -37,3 +37,5 @@ out/
 /dist/
 /nbdist/
 /.nb-gradle/
+
+spring_log\.log

@@ -15,7 +15,7 @@
         <div class="input-div">
             <div class="input-group">
                 <form action="#" th:action="@{/short_link}" th:object="${link}" method="post">
-                    <input type="text" class="form-control" placeholder="Enter your url ..." th:field="*{url}"/>
+                    <input type="text" class="form-control" placeholder="Enter your url ..." th:field="*{longLink}"/>
                         <span class="input-group-btn">
                             <button type="submit" class="ok_button">Ok</button>
                         </span>

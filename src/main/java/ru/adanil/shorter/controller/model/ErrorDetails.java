@@ -1,4 +1,4 @@
-package ru.adanil.shorter.model;
+package ru.adanil.shorter.controller.model;
 
 public class ErrorDetails {
 
