@@ -4,14 +4,14 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import ru.adanil.shorter.controller.model.Link;
+import ru.adanil.shorter.controller.model.LinkModel;
 
 @Controller
 public class IndexPageController {
 
     @RequestMapping(value="/", method=RequestMethod.GET)
     public String linkForm(Model model) {
-        model.addAttribute("link", new Link());
+        model.addAttribute("link", new LinkModel());
         return "index";
     }
 }

@@ -39,3 +39,5 @@ out/
 /.nb-gradle/
 
 spring_log\.log
+
+spring_log\.log\.2019-08-17\.0\.gz

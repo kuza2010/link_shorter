@@ -1,23 +1,23 @@
 package ru.adanil.shorter.controller.model;
 
-public class Link {
+public class LinkModel {
 
     private String longLink;
     private String shortLink;
 
-    public String getShortLink() {
+    public String getShort() {
         return shortLink;
     }
 
-    public void setShortLink(String shortLink) {
+    public void setShort(String shortLink) {
         this.shortLink = shortLink;
     }
 
-    public String getLongLink() {
+    public String getLong() {
         return longLink;
     }
 
-    public void setLongLink(String link) {
+    public void setLong(String link) {
         this.longLink = link;
     }
 

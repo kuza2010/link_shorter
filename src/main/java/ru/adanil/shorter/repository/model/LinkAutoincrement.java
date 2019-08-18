@@ -4,6 +4,7 @@ package ru.adanil.shorter.repository.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+
 @Document(collection = "LinkSequence")
 public class LinkAutoincrement {
     public static final String COLLECTION_NAME = "LinkSequence";

@@ -25,9 +25,30 @@ public class Link {
         this.shortLink = shortLink;
     }
 
+    public Link(String longLink, String shortLink) {
+        this.longLink = longLink;
+        this.shortLink = shortLink;
+    }
+
+    public String getLongLink() {
+        return longLink;
+    }
+
+    public void setLongLink(String longLink) {
+        this.longLink = longLink;
+    }
+
+    public String getShortLink() {
+        return shortLink;
+    }
+
+    public void setShortLink(String shortLink) {
+        this.shortLink = shortLink;
+    }
+
     @Override
     public String toString() {
-        return "Link{" +
+        return "LinkModel{" +
                 "id='" + id + '\'' +
                 ", longLink='" + longLink + '\'' +
                 '}';
