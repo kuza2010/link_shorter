@@ -29,4 +29,13 @@ public class LinkAutoincrement {
     public void setSeq(int seq) {
         this.seq = seq;
     }
+
+
+    @Override
+    public String toString() {
+        return "LinkAutoincrement{" +
+                "id='" + id + '\'' +
+                ", seq=" + seq +
+                '}';
+    }
 }

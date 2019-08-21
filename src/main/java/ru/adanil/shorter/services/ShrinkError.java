@@ -1,4 +1,4 @@
-package ru.adanil.shorter;
+package ru.adanil.shorter.services;
 
 public class ShrinkError extends Exception {
 

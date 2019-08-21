@@ -7,27 +7,26 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.servlet.view.RedirectView;
-import ru.adanil.shorter.ShrinkError;
-import ru.adanil.shorter.services.ShrinkLinkService;
+import ru.adanil.shorter.services.ShrinkError;
+import ru.adanil.shorter.services.impl.ShrinkLinkServiceImpl;
 
 import javax.servlet.http.HttpServletRequest;
 
 @Controller
-//TODO validate, create failedPage
+//TODO validate, create failedPage aka Ooops...
 public class OriginalUrlController {
 
     private Logger log = LoggerFactory.getLogger(OriginalUrlController.class);
 
     @Autowired
-    ShrinkLinkService shrinkService;
+    ShrinkLinkServiceImpl shrinkService;
 
     @GetMapping(value = "/*")
-    public RedirectView shortUrl(HttpServletRequest request) {
+    public RedirectView shortUrlHandler(HttpServletRequest request) {
         String uri = request.getRequestURI();
-        String originalURL = shrinkService.getOriginalURL(uri);
+        String originalURL = shrinkService.getCanonicalUrl(uri);
 
-        if(originalURL == null)
-            return goHome();
+        if (originalURL == null) return goHome();
 
         RedirectView redirectView = new RedirectView();
         redirectView.setUrl(originalURL);
