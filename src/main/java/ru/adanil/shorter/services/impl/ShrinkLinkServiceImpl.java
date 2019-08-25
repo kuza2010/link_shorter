@@ -4,11 +4,11 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import ru.adanil.shorter.Base62;
 import ru.adanil.shorter.controller.model.LinkModel;
 import ru.adanil.shorter.repository.LinkRepository;
 import ru.adanil.shorter.repository.model.Link;
 import ru.adanil.shorter.services.AutoincrementService;
+import ru.adanil.shorter.services.Base62;
 import ru.adanil.shorter.services.ShrinkError;
 import ru.adanil.shorter.services.ShrinkLinkService;
 
