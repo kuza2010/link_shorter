@@ -6,7 +6,7 @@ plugins {
 apply plugin: 'io.spring.dependency-management'
 
 group = 'ru.adanil'
-version = 'betta'
+version = '1.0.00'
 sourceCompatibility = '1.8'
 
 configurations {
