@@ -17,9 +17,11 @@ public class MongoDBController {
 
 
     static boolean startMongo(MongoConfiguration configuration) {
+        log.warn("MongoDBController: Start mongod...");
+
         String exec = configuration.getScriptPath();
         String mongoPath = configuration.getMongoPath();
-        String mongoConfigPath = configuration.getMongoPath();
+        String mongoConfigPath = configuration.getConfigPath();
 
         try {
             ProcessBuilder ps = new ProcessBuilder(exec, mongoPath, mongoConfigPath, ON);
@@ -30,7 +32,7 @@ public class MongoDBController {
             BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
+                log.warn(line);
             }
             pr.waitFor(30, TimeUnit.SECONDS);
 
@@ -39,15 +41,18 @@ public class MongoDBController {
 
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("Can not startup mongo database. ", e);
+            log.error("MongoDBController: Can not startup mongo database...", e);
         }
         return false;
     }
 
-    public boolean shutdown(MongoConfiguration configuration) {
+    static boolean shutdownMongo(MongoConfiguration configuration) {
+        log.info("MongoDBController: Shutdown mongod...");
+
         String exec = configuration.getScriptPath();
         String mongoPath = configuration.getMongoPath();
-        String mongoConfigPath = configuration.getMongoPath();
+        String mongoConfigPath = configuration.getConfigPath();
+
         try {
             ProcessBuilder ps = new ProcessBuilder(exec, mongoPath, mongoConfigPath, OFF);
 
@@ -57,17 +62,16 @@ public class MongoDBController {
             BufferedReader in = new BufferedReader(new InputStreamReader(pr.getInputStream()));
             String line;
             while ((line = in.readLine()) != null) {
-                System.out.println(line);
+                log.info(line);
             }
             pr.waitFor(30, TimeUnit.SECONDS);
 
             in.close();
-            Thread.sleep(1500);
 
             return true;
         } catch (Exception e) {
             e.printStackTrace();
-            log.error("Can not shutdown mongo database. ", e);
+            log.error("MongoDBController: can not shutdown mongo database...", e);
         }
         return false;
     }
